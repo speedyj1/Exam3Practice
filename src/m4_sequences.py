@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  SEQUENCES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jack Speedy.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -133,6 +133,12 @@ def practice_problem4a(sequence):
     Type hints:
       :type sequence: list | tuple | string
     """
+    new_list = []
+    for k in range(len(sequence)):
+        if k < len(sequence):
+            if sequence[k] == sequence[k+1]:
+                new_list = new_list + [k]
+    return new_list
     ####################################################################
     # TODO: 2. Implement and test this function.
     #     The testing code is already written for you (above).
