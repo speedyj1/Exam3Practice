@@ -202,6 +202,11 @@ def practice_problem4b(sequence):
     Type hints:
       :type sequence: (list | tuple) of (float | int)
     """
+    greatest_num = 0
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > greatest_num:
+            greatest_num = sequence[k]
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
