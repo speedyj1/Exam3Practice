@@ -207,6 +207,13 @@ def practice_problem3(start, n, threshold):
       :type n:     int
       :type threshold: float
     """
+    new_list = []
+    for k in range(start, start + 1000):
+        if math.sin(k) + math.cos(k) > threshold:
+            new_list = new_list + [k]
+        if len(new_list) == n:
+            return new_list
+    return new_list
     ####################################################################
     # TODO: 3. Implement and test this function.
     #          Some tests are already written for you (above),

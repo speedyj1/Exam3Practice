@@ -135,12 +135,12 @@ def practice_problem4a(sequence):
     """
     new_list = []
     for k in range(len(sequence)):
-        if k < len(sequence):
+        if k < len(sequence)-1:
             if sequence[k] == sequence[k+1]:
                 new_list = new_list + [k]
     return new_list
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -202,13 +202,14 @@ def practice_problem4b(sequence):
     Type hints:
       :type sequence: (list | tuple) of (float | int)
     """
-    greatest_num = 0
+    greatest_num = sequence[0]
     for k in range(0, len(sequence), 2):
         if sequence[k] > greatest_num:
             greatest_num = sequence[k]
+    return greatest_num
 
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -305,8 +306,14 @@ def practice_problem4c(points):
       :type points: tuple of rg.Point
       :rtype: rg.Point | string
     """
+    for k in range(len(points)):
+        if is_prime(points[k].x) == True:
+            if is_prime(points[k].y) == True:
+                new_point = rg.Point(points[k].y, points[k].x)
+                return new_point
+    return 'Not found'
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -401,8 +408,15 @@ def practice_problem4d(sequence):
       :type sequence: (list | tuple) of int
       :rtype: int
     """
+    sum = 0
+    for k in range(len(sequence)-1):
+        if is_prime(sequence[k]) == True:
+            if sequence[k] != sequence[k+1]:
+                if is_prime(sequence[k+1]) == True:
+                    sum = sum + sequence[k]
+    return sum
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)

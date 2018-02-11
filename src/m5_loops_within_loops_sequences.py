@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS in SEQUENCES-OF-SUBSEQUENCES problems.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jack Speedy.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -38,7 +38,7 @@ def main():
 def run_test_integers():
     """ Tests the    integers    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  integers  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -71,6 +71,20 @@ def run_test_integers():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    # Test 2:
+    expected = [4, 10, 1, 0, 4, 30, -4]
+    answer = integers([(3.1, 4),
+                       (10.0, 'hi', 10),
+                       [1, 2.5, 0, 4],
+                       'hello',
+                       [],
+                       ['oops'],
+                       [[55], [44]],
+                       [30, .5, -4]
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
 
 def integers(sequence_of_sequences):
     """
@@ -94,8 +108,15 @@ def integers(sequence_of_sequences):
       :type sequence_of_sequences: (list|tuple) of (list|tuple|string)
       :rtype: list of int
     """
+    new_list = []
+    for j in range(len(sequence_of_sequences)):
+        subsequence = sequence_of_sequences[j]
+        for k in range(len(subsequence)):
+            if type(subsequence[k]) == int:
+                new_list = new_list + [subsequence[k]]
+    return new_list
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -188,6 +209,14 @@ def big_letters(sequence_of_sequences):
 
     Precondition:  the given argument is a sequence of sequences.
     """
+    new_list = []
+    for j in range(len(sequence_of_sequences)):
+        subsequence = sequence_of_sequences[j]
+        for k in range(len(subsequence)):
+            if type(subsequence[k]) == str:
+
+                new_list = new_list + [subsequence[k]]
+    return new_list
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
