@@ -30,8 +30,25 @@ def run_test_zero_changer():
     print('  Expected:', expected1)
     print('  Actual:  ', test1)
 
+    # Test 2:
+    test1 = ([0, 4, 0, 9], [77, 0, 0, 1, 5, 0], [4, 0, 4], [4, 0, 4])
+    expected1 = ([1, 4, 2, 9], [77, 3, 4, 1, 5, 5], [4, 6, 4], [4, 7, 4])
+    zero_changer(test1)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    # Test 3:
+    test1 = ([0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0], [0, 0, 0])
+    expected1 = ([1, 2, 3, 4], [5, 6, 7, 8, 9, 10], [11, 12, 13], [14, 15, 16])
+    zero_changer(test1)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
     # ------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the  zero_changer   function.
+    # DONE: 2. Write at least 2 additional tests for the  zero_changer   function.
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
 
@@ -60,8 +77,16 @@ def zero_changer(tuple_of_lists):
     Type hints:
       :type tuple_of_lists: tuple of list[int]
     """
+    zero_number = 1
+    for j in range(len(tuple_of_lists)):
+        sublist = tuple_of_lists[j]
+        for k in range(len(sublist)):
+            if sublist[k] == 0:
+                sublist[k] = zero_number
+                zero_number = zero_number + 1
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------

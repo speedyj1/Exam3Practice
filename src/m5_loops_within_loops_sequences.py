@@ -209,14 +209,13 @@ def big_letters(sequence_of_sequences):
 
     Precondition:  the given argument is a sequence of sequences.
     """
-    new_list = []
+    string = ''
     for j in range(len(sequence_of_sequences)):
         subsequence = sequence_of_sequences[j]
         for k in range(len(subsequence)):
             if type(subsequence[k]) == str:
-
-                new_list = new_list + [subsequence[k]]
-    return new_list
+                string = string + subsequence[k]
+    return string
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
