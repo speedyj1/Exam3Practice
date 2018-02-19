@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -109,6 +109,12 @@ def run_test_practice_problem3():
              st.SimpleTestCase(practice_problem3,
                                [0, 1, 1.414213562373],
                                [286602]),
+             st.SimpleTestCase(practice_problem3, #THESE LAST TWO ARE MY ADDED TESTS
+                               [0, 2, 0],
+                               [0, 1]),
+             st.SimpleTestCase(practice_problem3,
+                               [0, 5, 0],
+                               [0, 1, 2, 6, 7]),
              ]
     # 14th test:
     big_list = []
@@ -208,15 +214,15 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     new_list = []
+    k = start
     while len(new_list) < n:
-        if (math.sin(start) + math.cos(start)) > threshold:
-            new_list = new_list + [start]
-            start = start + 1
-        if len(new_list) == n:
-            break
+        sum = math.sin(k) + math.cos(k)
+        if sum > threshold:
+            new_list = new_list + [k]
+        k = k +1
     return new_list
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################

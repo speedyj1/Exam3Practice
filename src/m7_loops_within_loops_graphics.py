@@ -29,6 +29,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 ########################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
@@ -88,8 +89,42 @@ def hourglass(window, n, point, radius, color):
     where n and radius are positive and color is a string that denotes
     a color that rosegraphics understands.
     """
+    original_point = rg.Point(point.x, point.y)
+    pointdown = rg.Point(point.x, point.y)
+    for k in range(n):
+        circle = rg.Circle(point, radius)
+        circle.fill_color = color
+        circle.attach_to(window)
+        line = rg.Line(rg.Point(point.x-radius, point.y), rg.Point(point.x + radius, point.y))
+        line.attach_to(window)
+        circle2 = rg.Circle(pointdown, radius)
+        circle2.fill_color = color
+        circle2.attach_to(window)
+        line2 = rg.Line(rg.Point(pointdown.x - radius, pointdown.y), rg.Point(pointdown.x + radius, pointdown.y))
+        line2.attach_to(window)
+        for j in range(k):
+            new_point.x = point.x + (2*radius)
+            circle1 = rg.Circle(new_point, radius)
+            circle1.fill_color = color
+            circle1.attach_to(window)
+            line1 = rg.Line(rg.Point(point.x-radius, point.y), rg.Point(point.x + radius, point.y))
+            line1.attach_to(window)
+        for m in range(k):
+            new2_point.x = pointdown.x + (2*radius)
+            circle3 = rg.Circle(new2_point, radius)
+            circle3.fill_color = color
+            circle3.attach_to(window)
+            line3 = rg.Line(rg.Point(pointdown.x - radius, pointdown.y), rg.Point(pointdown.x + radius, pointdown.y))
+            line3.attach_to(window)
+        point.x = original_point.x - ((k+1)*radius)
+        point.y = original_point.y - (k+1)*(math.sqrt(3) * radius)
+        new_point = point
+        pointdown.x = original_point.x - ((k+1)*radius)
+        pointdown.y = original_point.y + ((k+1)*(math.sqrt(3)*radius))
+        new2_point = pointdown
+    window.render(0.1)
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################

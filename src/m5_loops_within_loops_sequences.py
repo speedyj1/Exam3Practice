@@ -144,7 +144,7 @@ def integers(sequence_of_sequences):
 def run_test_big_letters():
     """ Tests the    big_letters    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  big_letters  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     # ------------------------------------------------------------------
@@ -180,6 +180,26 @@ def run_test_big_letters():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    # Test 2:
+    expected = 'ADPOWERPSBADGOOD'
+    answer = big_letters(['AbcDef',
+                          (10, 'HELLO', 10),
+                          [],
+                          ['oops'],
+                          'ooPs',
+                          ['OeWe'],
+                          '1 OW !',
+                          'ER',
+                          'ooPS $$&*#%&&',
+                          'B',
+                          'oApD',
+                          'G',
+                          'OOs'  
+                          'D',
+                          'oops'
+                          ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
 
 def big_letters(sequence_of_sequences):
     """
@@ -212,12 +232,13 @@ def big_letters(sequence_of_sequences):
     string = ''
     for j in range(len(sequence_of_sequences)):
         subsequence = sequence_of_sequences[j]
-        for k in range(len(subsequence)):
-            if type(subsequence[k]) == str:
-                string = string + subsequence[k]
+        if type(subsequence) == str:
+            for k in range(len(subsequence)):
+                    if subsequence[k].isupper() == True:
+                        string = string + subsequence[k]
     return string
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################

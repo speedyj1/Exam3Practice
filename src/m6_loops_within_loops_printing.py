@@ -74,9 +74,19 @@ def shape(r):
     Preconditions:  r is a positive number.
     For purposes of "lining up", assume r is a single digit.
     """
-
+    for j in range(r):
+        for k in range(j):
+            print(' ', end='')
+        for m in range(r - j):
+            print('+', end='')
+        print(end='!')
+        for n in range(r - j, 0, -1):
+            print(n, end='')
+        for z in range(j):
+            print('-', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     ####################################################################
