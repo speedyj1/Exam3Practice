@@ -307,9 +307,10 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     for k in range(len(points)):
-        if is_prime(points[k].x) == True:
-            if is_prime(points[k].y) == True:
-                new_point = rg.Point(points[k].y, points[k].x)
+        subsequence = points[k]
+        if is_prime(subsequence.x) == True:
+            if is_prime(subsequence.y) == True:
+                new_point = rg.Point(subsequence.y, subsequence.x)
                 return new_point
     return 'Not found'
     ####################################################################
